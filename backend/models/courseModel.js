@@ -49,7 +49,17 @@ const courseSchema = Schema({
     semester: {
         type: String,
         required: [true, 'Please add the course semester']
-    }
+    },
+    files: [{
+        file: {
+            type: Schema.Types.ObjectId,
+            ref: 'CourseFile'
+        },
+        activity: {
+            type: Schema.Types.ObjectId,
+            ref: 'Activity'
+        }
+    }],
 }, { timestamps: true });
 
 module.exports = mongoose.model('Course', courseSchema);

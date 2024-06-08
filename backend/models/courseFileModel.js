@@ -1,24 +1,11 @@
-/*
-    CourseFileModel
-    ===============
-    Fields
-
-    filename: string
-    data: buffer
-*/
-
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 
-const courseFileSchema = Schema({
-    filename: {
-        type: String,
-        required: true
-    },
-    data: {
-        type: mongoose.Types.Buffer,
-        required: true
-    }
-}, { timestamps: true });
+const courseFileSchema = new mongoose.Schema({
+    length: { type: Number },
+    chunkSize: { type: Number },
+    uploadDate: { type: Date },
+    filename: { type: String, trim: true, searchable: true },
+    md5: { type: String, trim: true, searchable: true },
+}, { collection: 'courses.files', id: false });
 
-module.exports = mongoose.Model('CourseFile', courseFileSchema);
+module.exports = mongoose.model('CourseFile', courseFileSchema);

@@ -8,8 +8,10 @@ const { errorHandler } = require('./middlwares/errorMiddleware');
 const activityRouter = require('./routes/activityRouter');
 const classRouter = require('./routes/classRouter');
 const courseRouter = require('./routes/courseRouter');
+const courseFileRouter = require('./routes/courseFileRouter');
 const userRouter = require('./routes/userRouter');
 
+// libraries
 const colors = require('colors');
 const express = require('express');
 
@@ -27,6 +29,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/api/activities/', activityRouter);
 app.use('/api/classes/', classRouter);
 app.use('/api/courses/', courseRouter);
+app.use('/api/courses/files/', courseFileRouter);
 app.use('/api/users/', userRouter);
 
 app.use(errorHandler);

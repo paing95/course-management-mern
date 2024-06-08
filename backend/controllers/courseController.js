@@ -11,7 +11,7 @@ const fieldsAllowedToUpdate = [
     'days',
     'lecturer',
     'activities',
-    'semeste'
+    'semester'
 ];
 
 
@@ -29,8 +29,10 @@ const getCourses = asyncHandler(async (req, resp) => {
 
     const courses = await CourseModel
         .find(filters)
-        .populate('lecturer')
-        .populate('activities')
+        .populate([
+            'lecturer', 'activities',
+            'files.file', 'files.activity',
+        ])
         .sort({ name: 1 })
 
     resp.status(200).json({ results: courses });
