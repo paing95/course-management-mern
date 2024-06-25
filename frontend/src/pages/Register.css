@@ -1,0 +1,32 @@
+.register-title {
+    color: #074023;
+    font-weight: 500 !important;
+    margin-bottom: 1em;
+}
+
+.register-form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    justify-content:center;
+    max-width: 95vw;
+    min-width: 300px;
+    padding: 2em;
+    width: 30vw;
+}
+
+.register-form-parent {
+    align-items: center;
+    
+    background: -webkit-linear-gradient(-50deg, #FDBE25 50%, #074023 50%);
+    background: -o-linear-gradient(-50deg, #FDBE25 50%, #074023 50%);
+    background: -moz-linear-gradient(-50deg, #FDBE25 50%, #074023 50%);
+    background: linear-gradient(-50deg, #FDBE25 50%, #074023 50%);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}

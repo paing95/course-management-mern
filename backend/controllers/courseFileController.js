@@ -63,8 +63,11 @@ const uploadCourseFile = asyncHandler(async(req, resp) => {
     // append new file id and update course object
     let allCourseFiles = findCourse.files || [];
     let newFile = {
-        file: uploadStream.id,
-        activity: activity_id
+        file_name: originalname,
+        file_size: uploadStream.length,
+        file_id: uploadStream.id,
+        upload_date: new Date(),
+        activity_id
     };
     allCourseFiles.push(newFile);
     await CourseModel.updateOne(
@@ -74,7 +77,6 @@ const uploadCourseFile = asyncHandler(async(req, resp) => {
 
     const course = await CourseModel.findById(course_id).populate([
         'lecturer', 'activities',
-        'files.file', 'files.activity',
     ]);
 
     return resp.send({ results: course });

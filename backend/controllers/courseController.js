@@ -4,6 +4,7 @@ const CourseValidator = require('../validators/courseValidator');
 const { massageErrors, removeInvalidData } = require('../validators/helper');
 
 const fieldsAllowedToUpdate = [
+    'code',
     'name',
     'description',
     'start_datetime',
@@ -31,7 +32,6 @@ const getCourses = asyncHandler(async (req, resp) => {
         .find(filters)
         .populate([
             'lecturer', 'activities',
-            'files.file', 'files.activity',
         ])
         .sort({ name: 1 })
 
@@ -51,7 +51,7 @@ const createCourse = asyncHandler(async (req, resp) => {
     }
 
     const {
-        name, description,
+        code, name, description,
         start_datetime, end_datetime,
         days, lecturer,
         activities, semester
@@ -63,13 +63,13 @@ const createCourse = asyncHandler(async (req, resp) => {
     }
 
     const course = await CourseModel.create({
-        name, description,
+        code, name, description,
         start_datetime, end_datetime,
         days, lecturer,
         activities, semester
     });
 
-    resp.status(200).json({ results: {} });
+    resp.status(200).json({ results: course });
 });
 
 // @desc    Update an existing course

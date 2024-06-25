@@ -17,6 +17,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const courseSchema = Schema({
+    code: {
+        type: String,
+        required: true
+    },
     name: {
         type: String,
         required: [true, 'Please add course name.']
@@ -35,7 +39,7 @@ const courseSchema = Schema({
     },
     days: {
         type: [String],
-        enum: ['MO', 'TU', 'WE', 'TH', 'FR'],
+        enum: ['MON', 'TUE', 'WED', 'THU', 'FRI'],
         required: true
     },
     lecturer: {
@@ -51,13 +55,22 @@ const courseSchema = Schema({
         required: [true, 'Please add the course semester']
     },
     files: [{
-        file: {
+        file_name: {
+            type: String
+        },
+        file_size: {
+            type: Number
+        },
+        file_id: {
             type: Schema.Types.ObjectId,
             ref: 'CourseFile'
         },
-        activity: {
+        activity_id: {
             type: Schema.Types.ObjectId,
             ref: 'Activity'
+        },
+        upload_date: {
+            type: Date,
         }
     }],
 }, { timestamps: true });

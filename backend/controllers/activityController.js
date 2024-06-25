@@ -5,11 +5,14 @@ const ActivityModel = require('../models/activityModel');
 // @route   GET /api/activities/
 // @access  Private
 const getActivities = asyncHandler(async(req, resp) => {
-    const activities = await ActivityModel.find();
+    const activities = await ActivityModel.find().sort({ name: 1 });
 
     resp.status(200).json({ results: activities });
 });
 
+// @desc    Get activities
+// @route   POST /api/activities/
+// @access  Private
 const createActivity = asyncHandler(async(req, resp) => {
     if (!req.body.name) {
         resp.status(400);
