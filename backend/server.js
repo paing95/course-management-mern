@@ -31,9 +31,9 @@ app.use(express.urlencoded({ extended: false }));
 // routes
 app.use('/api/activities/', activityRouter);
 app.use('/api/classes/', classRouter);
-app.use('/api/courses/', courseRouter);
-app.use('/api/courses/catalog/', courseCatalogRouter);
 app.use('/api/courses/files/', courseFileRouter);
+app.use('/api/courses/catalog/', courseCatalogRouter);
+app.use('/api/courses/', courseRouter);
 app.use('/api/users/', userRouter);
 
 app.use(errorHandler);

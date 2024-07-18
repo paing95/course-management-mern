@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from
 import { useSelector } from "react-redux";
 
 // pages
+import CourseDetails from './pages/course/CourseDetails';
 import CourseList from './pages/course/CourseList';
 import CreateCourse from './pages/course/CreateCourse';
 import Header from './components/Header';
@@ -22,8 +23,10 @@ function App() {
   const navigate = useNavigate();
   const { user } = useSelector(state => state.auth);
 
+  const loginUser = JSON.parse(localStorage.getItem('course-mgmt-user'));
+
   useEffect(() => {
-    if (!user && location.pathname !== '/login') {
+    if (!loginUser && location.pathname !== '/login') {
       navigate('/login');
     }
   }, []);
@@ -36,7 +39,8 @@ function App() {
               <Route path='/login' element={<Login />} />
               <Route path='/register' element={<Register />} />
               <Route path='/' element={<CourseList />} />
-              <Route path='/create-course' element={<CreateCourse />} />
+              {loginUser && loginUser.role === 'lecturer' && <Route path='/create-course' element={<CreateCourse />} />}
+              <Route path='/course' element={<CourseDetails />} />
             </Routes>  
           </Header>
       </div>

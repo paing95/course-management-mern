@@ -12,6 +12,7 @@ const { massageErrors } = require('../validators/helper');
 // @access  Private
 const getCoursesCatalog = asyncHandler(async(req, resp) => {
     const courses_catalog = await CourseCatalogModel.find().sort({ code: 1 });
+    console.log("Course Catalogs:", courses_catalog);
     resp.status(200).json({ results: courses_catalog });
 });
 

@@ -1,0 +1,9 @@
+.course-chip-selected {
+    color: #fff !important; 
+    background-color: #2196f3 !important;
+}
+
+.course-chip-selected:hover {
+    color: #fff !important;
+    background-color: #2196f3 !important;
+}

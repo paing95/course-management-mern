@@ -7,4 +7,5 @@ export const API_URLS = {
     GET_CLASSES: '/api/classes/',
     GET_COURSES: '/api/courses/',
     GET_ACTIVITY_FILES: '/api/courses/files/',
+    GET_COURSE_CATALOGS: '/api/courses/catalog/'
 };

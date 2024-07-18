@@ -38,6 +38,26 @@ const getCourses = asyncHandler(async (req, resp) => {
     resp.status(200).json({ results: courses });
 });
 
+// @desc    Get course detail
+// @route   GET /api/courses/:id
+// @access  Private
+const getCourseDetail = asyncHandler(async (req, resp) => {
+
+    const findCourse = await CourseModel
+        .findById(req.params.id)
+        .populate([
+            'lecturer', 'activities',
+        ]);
+
+    if (!findCourse) {
+        resp.status(400);
+        throw new Error('The course does not exist.');
+    }
+
+    resp.status(200).json({ results: findCourse });
+
+});
+
 // @desc    Create a new course
 // @route   POST /api/courses/
 // @access  Private
@@ -110,6 +130,7 @@ const deleteCourse = asyncHandler(async (req, resp) => {
 
 module.exports = {
     getCourses,
+    getCourseDetail,
     createCourse,
     updateCourse,
     deleteCourse

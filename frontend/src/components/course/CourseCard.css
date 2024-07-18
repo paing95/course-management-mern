@@ -1,0 +1,30 @@
+.course-card-title .MuiCardHeader-content {
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+    overflow: hidden !important;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.course-card-title .MuiCardHeader-title {
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+    overflow: hidden !important;
+}
+
+.course-card-title {
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 0.2em;
+    padding-right: 0.2em;
+    color: #074023;
+    background-color: #FDBE25;
+    font-weight: 800 !important;
+}
+
+.course-date {
+    align-items: center;
+    display: flex;
+    gap: 5px;
+}
