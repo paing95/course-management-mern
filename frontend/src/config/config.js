@@ -1,4 +1,4 @@
-export const API_DOMAIN = 'http://localhost:4000';
+export const API_DOMAIN = process.env.REACT_APP_API_DOMAIN;
 export const API_URLS = {
     REGISTER_USER: '/api/users/register',
     LOGIN_USER: '/api/users/login',
