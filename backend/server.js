@@ -28,6 +28,11 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+app.get('/', (req, res) => {
+    res.send('Course Management APIs.')
+});
+
+
 // routes
 app.use('/api/activities/', activityRouter);
 app.use('/api/classes/', classRouter);
