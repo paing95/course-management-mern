@@ -57,6 +57,7 @@ const CreateCourse = () => {
         // message: ''
     } = useSelector((state) => state.activity);
     const { course_detail, isLoading: isCourseLoading } = useSelector((state) => state.course);
+    const { user } = useSelector(state => state.auth);
 
     // state
     const [courseId, setCourseId] = useState('');
@@ -82,23 +83,28 @@ const CreateCourse = () => {
             return;
         }
 
+        if (endTime < startTime) {
+            setErrorMode('error');
+            setErrorMsg('End time must be later than start time.');
+            return;
+        }
+
         let code = course.code;
         let name = course.name;
         let start_datetime = startDate.format('YYYY-MM-DD') + " " + startTime.format('HH:mm:ss');
         let end_datetime = endDate.format('YYYY-MM-DD') + " " + endTime.format('HH:mm:ss');
-        const loginUser = JSON.parse(localStorage.getItem('course-mgmt-user'));
-        let lecturer = loginUser.id;
+        let lecturer = user.id;
 
-        console.log('=== DATA ===');
-        console.log('code:', code);
-        console.log('name:', name);
-        console.log('description:', description);
-        console.log('start_datetime:', start_datetime);
-        console.log('end_datetime:', end_datetime);
-        console.log('days:', days);
-        console.log('activities:', activities);
-        console.log('semester:', semester);
-        console.log('lecturer:', lecturer);
+        // console.log('=== DATA ===');
+        // console.log('code:', code);
+        // console.log('name:', name);
+        // console.log('description:', description);
+        // console.log('start_datetime:', start_datetime);
+        // console.log('end_datetime:', end_datetime);
+        // console.log('days:', days);
+        // console.log('activities:', activities);
+        // console.log('semester:', semester);
+        // console.log('lecturer:', lecturer);
 
         dispatch(createCourse({
             code, 

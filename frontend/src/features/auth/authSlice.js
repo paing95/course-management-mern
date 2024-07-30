@@ -1,12 +1,23 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { jwtDecode } from "jwt-decode";
 
 import authService from './authService';
 
 // Get the user from local storage
-const loginUser = JSON.parse(localStorage.getItem('course-mgmt-user'))
+const loginUser = JSON.parse(localStorage.getItem('course-mgmt-user'));
+let decoded = null;
+let expired = false;
+
+if (loginUser) {
+    decoded = jwtDecode(loginUser.token);
+}
+
+if (loginUser && Date.now() >= decoded.exp * 1000) {
+    expired = true;
+}
 
 const initialState = {
-    user: loginUser ? loginUser : null,
+    user: loginUser && !expired ? loginUser : null,
     isError: false,
     isLoading: false,
     message: ''
@@ -45,6 +56,7 @@ export const authSlice = createSlice({
     initialState,
     reducers: {
         reset: (state) => {
+            state.user = null;
             state.isError = false;
             state.isLoading = false;
             state.message = '';

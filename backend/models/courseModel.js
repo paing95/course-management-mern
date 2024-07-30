@@ -39,7 +39,7 @@ const courseSchema = Schema({
     },
     days: {
         type: [String],
-        enum: ['MON', 'TUE', 'WED', 'THU', 'FRI'],
+        enum: ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'],
         required: true
     },
     lecturer: {

@@ -85,14 +85,14 @@ const Register = () => {
         setErrorMessage('');
         setErrorMode('');
 
-        console.log('firstName:', firstName);
-        console.log('lastName:', lastName);
-        console.log('password:', password);
-        console.log('confirmPassword:', confirmPassword);
-        console.log('selectedClass:', selectedClass);
-        console.log('selectedRole:', selectedRole);
+        // console.log('firstName:', firstName);
+        // console.log('lastName:', lastName);
+        // console.log('password:', password);
+        // console.log('confirmPassword:', confirmPassword);
+        // console.log('selectedClass:', selectedClass);
+        // console.log('selectedRole:', selectedRole);
 
-        if (!firstName || !lastName || !email || !password || !confirmPassword || selectedClass.length === 0 || !selectedRole) {
+        if (!firstName || !lastName || !email || !password || !confirmPassword ||  !selectedRole) {
             setErrorMessage('All the required information must be filled.');
             setErrorMode('error');
             return;
@@ -327,7 +327,7 @@ const Register = () => {
                         </FormControl>
 
                         {/* Classes */}
-                        <FormControl fullWidth>
+                        {/* <FormControl fullWidth>
                             <InputLabel id="select-class-label">Classes *</InputLabel>
                             <Select
                                 required
@@ -355,7 +355,7 @@ const Register = () => {
                             }}>
                                 {selectedClass.map( (sc, idx) => <Chip key={idx} label={roleDict[sc]} variant="outlined filled" />)}
                             </Stack>}
-                        </FormControl>
+                        </FormControl> */}
 
                         <Button 
                             variant="contained"

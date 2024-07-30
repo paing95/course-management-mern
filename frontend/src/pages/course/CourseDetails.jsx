@@ -250,7 +250,7 @@ const CourseDetails = () => {
                 <Typography variant="h5" className="course-list-title">
                     {course ? `${course.name} (${course.code})` : "Course Details"}
                 </Typography>
-                <Grid container sx={{ padding: '1em', paddingBottom: "0px" }}>
+                <Grid container sx={{ padding: '0.5em', paddingBottom: "0px", rowGap: "0.5em" }}>
                     <Grid item md={6} xs={12}>
                         <Box 
                             component="fieldset" 
@@ -319,7 +319,7 @@ const CourseDetails = () => {
                         </Box>
                     </Grid>
                 </Grid>
-                <Grid container sx={{ padding: '1em', paddingTop: "0px" }}>
+                <Grid container sx={{ padding: '0.5em', paddingTop: "0px" }}>
                     <Grid item xs={12}>
                         <Box 
                             component="fieldset" 

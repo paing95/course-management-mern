@@ -4,7 +4,7 @@ import {
     Tooltip,
 } from "@mui/material";
 // MUI Colors
-import { green, grey, indigo, purple, red, teal } from '@mui/material/colors';
+import { amber, deepOrange, green, grey, indigo, purple, red, teal } from '@mui/material/colors';
 
 const CourseDayElement = ({ dayOfWeek }) => {
 
@@ -20,6 +20,10 @@ const CourseDayElement = ({ dayOfWeek }) => {
                 return teal[500]
             case "FRI":
                 return green[500]
+            case "SAT":
+                return deepOrange[500]
+            case "SUN":
+                return amber[500]
             default:
                 return grey[500]
         }

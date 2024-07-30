@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { reset } from '../features/auth/authSlice';
 
 // MUI
 import {
@@ -28,6 +29,7 @@ import './Header.css';
 const Header = ({ children }) => {
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const { user } = useSelector(state => state.auth);
 
@@ -66,6 +68,7 @@ const Header = ({ children }) => {
         setOpenProfileDialog(false);
 
         localStorage.removeItem('course-mgmt-user');
+        dispatch(reset());
         window.location.href = '/login';
     };
 
