@@ -7,12 +7,14 @@ A simple website for a university course management. Written in a simple **MERN*
 There are two types of users: **lecturer** and **student**.
 
 As a lecturer, the person can do
-1. add courses
-2. add, remove course activities, and
-3. upload files to course activity.
+1. add courses,
+2. add, remove course activities,
+3. upload files to course activity, and 
+4. chat with students on a chat room of the course.
 
 As a student, the person can do
-1. view courses, activities and files.
+1. view courses, activities and files, and
+2. chat with teachers and other students on a chat room of the course.
 
 Both user types can register and create an account.
 
@@ -21,5 +23,7 @@ Both user types can register and create an account.
 1. Using GridFS, upload files in chunks and show the uploaded files as file url in browser. Codes related to those can be viewed at **courseFileController.js**.
 
 2. Authentication using JWT. Codes related to this is at **authMiddleware.js**.
+
+3. Socket.io for chat feature.
 
 Live version is available at: [Vercel Hosted Website](https://course-management-sage.vercel.app/login).

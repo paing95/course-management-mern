@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { API_DOMAIN } from "../../config/config";
 // redux
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -69,7 +70,7 @@ const ChatList = () => {
         dispatch(getChatsByRoomId(roomId));
 
         socket.current = io.connect(
-            'http://localhost:4000', 
+            API_DOMAIN, 
             // {
             //     autoConnect: false,
             //     query: {
