@@ -18,7 +18,7 @@ import CourseTimeElement from "./CourseTimeElement";
 // css
 import './CourseCard.css';
 
-const CourseCard = ({ id, title, start_datetime, end_datetime, days }) => {
+const CourseCard = ({ id, title, start_datetime, end_datetime, days, chat_room }) => {
     
     const navigate = useNavigate();
 
@@ -87,6 +87,9 @@ const CourseCard = ({ id, title, start_datetime, end_datetime, days }) => {
                 <Button size="small" color="primary" onClick={() => navigate(`/course?id=${id}`)}>
                     Details
                 </Button>
+                {chat_room && <Button size="small" color="primary" onClick={() => navigate(`/chat/${chat_room}`)}>
+                    Chats
+                </Button>}
             </CardActions>
         </Card>
     )

@@ -39,6 +39,7 @@ const CourseList = () => {
                     start_datetime={course.start_datetime}
                     end_datetime={course.end_datetime}
                     days={course.days}
+                    chat_room={course.chat_room}
                 />
             </Grid>)}
         </Grid>

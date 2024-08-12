@@ -73,6 +73,10 @@ const courseSchema = Schema({
             type: Date,
         }
     }],
+    chat_room: {
+        type: Schema.Types.ObjectId,
+        ref: 'ChatRoom'
+    }
 }, { timestamps: true });
 
 module.exports = mongoose.model('Course', courseSchema);

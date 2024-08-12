@@ -9,6 +9,7 @@ import { reset } from "./features/auth/authSlice";
 import { jwtDecode } from "jwt-decode";
 
 // pages
+import ChatList from './pages/chat/ChatList';
 import CourseDetails from './pages/course/CourseDetails';
 import CourseList from './pages/course/CourseList';
 import CreateCourse from './pages/course/CreateCourse';
@@ -59,6 +60,7 @@ function App() {
               <Route path='/' element={<CourseList />} />
               {user && user.role === 'lecturer' && <Route path='/create-course' element={<CreateCourse />} />}
               <Route path='/course' element={<CourseDetails />} />
+              <Route path='/chat/:id' element={<ChatList />} />
             </Routes>  
           </Header>
       </div>

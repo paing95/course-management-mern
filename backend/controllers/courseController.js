@@ -1,5 +1,6 @@
 const asyncHandler = require('express-async-handler');
 const CourseModel = require('../models/courseModel');
+const ChatRoomModel = require('../models/chatRoomModel');
 const CourseValidator = require('../validators/courseValidator');
 const { massageErrors, removeInvalidData } = require('../validators/helper');
 
@@ -88,6 +89,12 @@ const createCourse = asyncHandler(async (req, resp) => {
         days, lecturer,
         activities, semester
     });
+
+    const chat_room = await ChatRoomModel.create({
+        course: course._id
+    });
+
+    await CourseModel.updateOne({ _id: course.id }, { chat_room: chat_room.id });
 
     resp.status(200).json({ results: course });
 });
