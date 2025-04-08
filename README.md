@@ -26,4 +26,8 @@ Both user types can register and create an account.
 
 3. Socket.io for chat feature.
 
-Live version is available at: [Vercel Hosted Website](https://course-management-sage.vercel.app/login). Chat is not working on Vercel Live Version. Recommend to try on the localhost.
+Live version is available at: [Website Hosted at Render](https://course-management-web.onrender.com).
+
+Sample Lecturer Account: testlecturer1@gmail.com (abc123!@#)
+Sample Student Account: testuser6@gmail.com (abc123!@#)
+
