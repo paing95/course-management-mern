@@ -29,5 +29,6 @@ Both user types can register and create an account.
 Live version is available at: [Website Hosted at Render](https://course-management-web.onrender.com).
 
 Sample Lecturer Account: testlecturer1@gmail.com (abc123!@#)
+
 Sample Student Account: testuser6@gmail.com (abc123!@#)
 
